@@ -156,10 +156,11 @@ public class CourtUtils {
 		Random random = new Random();
 		
 		if (maxFine != 0) {
-			random = new Random();
-			int minFine = maxFine / 3;
-			int randomFine = minFine + random.nextInt(maxFine - minFine + 1);
-			result.append("Fined: " + randomFine + ". ");
+		    random = new Random();
+		    int minFine = maxFine / 3;
+		    int randomFine = minFine + random.nextInt(maxFine - minFine + 1);
+		    int roundedFine = ((randomFine + 5) / 10) * 10;
+		    result.append("Fined: " + roundedFine + ". ");
 		}
 		
 		boolean onlyProbation = outcomeTime.equalsIgnoreCase("months") && random.nextInt(100) < 10;
